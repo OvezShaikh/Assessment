@@ -1,7 +1,8 @@
 import Voyex from "../assets/Voyex.png";
-import search from "../assets/search.png";
+import searchnormal from "../assets/searchnormal.svg";
+
 
 export default{
     Voyex,
-    search
+    searchnormal,
 }

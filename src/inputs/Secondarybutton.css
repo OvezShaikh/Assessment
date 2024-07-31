@@ -1,0 +1,34 @@
+.arrow-container {
+  position: relative;
+  display: inline-block;
+}
+
+.arrow-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  width: 0;
+  height: 2px; /* Adjust the height as needed */
+  background-color: #46BA3C; /* Tail color */
+  transform: translateY(-40%);
+  transition: width 0.8s ease; /* Smooth transition */
+}
+.arrow-button {
+    width: 309px;
+    transition: width 0.8s ease; /* Smooth transition for width change */
+  }
+
+.arrow-button:hover {
+    width: 334px; /* Width on hover */
+  }
+.arrow-button:hover .arrow-container::before {
+  width: 50px; /* Adjust the length of the tail on hover */
+}
+
+.arrow {
+  display: inline-block;
+  position: relative;
+  z-index: 2; /* Ensure arrow is above the tail */
+  
+}
