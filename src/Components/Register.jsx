@@ -8,12 +8,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import icons from '../constants/icons';
 import images from '../constants/images';
-import { Dialog, DialogPanel, Input } from '@headlessui/react'
+import { Dialog, DialogPanel, Input } from '@headlessui/react';
+import { useNavigate } from 'react-router-dom';
+
 
 function Register() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
     const navigation = [
         { name: 'Product', href: '#', },
         { name: 'Features', href: '#' },
@@ -27,6 +30,8 @@ function Register() {
         if (!registeredUsers.includes(email)) {
             registeredUsers.push(email);
             localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
+            console.log("Registered email:", email);
+            navigate('/');
             toast.success('Registration successful!', {
                 position: "top-right",
                 autoClose: 3000,
@@ -35,7 +40,9 @@ function Register() {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-            });
+            }
+            
+        );
         } else {
             toast.error('Email already registered', {
                 position: "top-right",

@@ -37,8 +37,8 @@ function Loginpage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Email:', email);
-        console.log('Password:', password);
+        console.log('Login success, current user:', email,password);
+        // console.log('Password:', password);
     };
 
     useEffect(() => {
