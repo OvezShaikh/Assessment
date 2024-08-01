@@ -11,6 +11,11 @@ import images from '../constants/images';
 import { Dialog, DialogPanel, Input } from '@headlessui/react';
 import { useNavigate } from 'react-router-dom';
 
+import searchnormal from "../assets/searchnormal.svg";
+import clipboard from "../assets/clipboard.svg"; 
+import lock from "../assets/lock.svg";
+import shopping from "../assets/shopping.svg";
+
 
 function Register() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,10 +23,10 @@ function Register() {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const navigation = [
-        { name: 'Product', href: '#', },
-        { name: 'Features', href: '#' },
-        { name: 'Marketplace', href: '#' },
-        { name: 'Company', href: '#' },
+        { name: 'Search', href: '/Search', icon: searchnormal },
+        { name: 'Templates', href: '#', icon: clipboard },
+        { name: 'GalactiMart', href: '#', icon: shopping },
+        { name: 'Workspace', href: '#', icon: lock },
     ]
 
     const handleRegister = (e) => {
@@ -81,8 +86,8 @@ function Register() {
                     </div>
                     <div className="hidden lg:flex lg:gap-x-12">
                         {navigation.map((item) => (
-                            <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-white">
-                                {/* <img src={item.icon} alt={`${item.name} icon`} className="w-5 h-5" /> */}
+                            <a key={item.name} href={item.href} className="flex flex-row gap-1 text-sm font-semibold leading-6 text-white">
+                                <img src={item.icon} alt={`${item.name} icon`} className="w-5 h-5" />
                                 <span>{item.name}</span>
                             </a>
                         ))}
